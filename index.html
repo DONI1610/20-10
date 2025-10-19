@@ -11,40 +11,45 @@ body {
     background: radial-gradient(circle at top,#ffeaf1 0%,#ffc1d6 60%,#ff9bb3 100%);
     overflow:hidden; font-family:'Poppins',sans-serif;
 }
-h1 { font-family:'Pacifico',cursive; color:#c2185b; font-size:38px; margin-bottom:50px;
-    text-shadow:2px2px6px rgba(255,255,255,0.6); animation:glow 3s infinite alternate; }
+h1 { font-family:'Pacifico',cursive; color:#c2185b; font-size:32px; margin-bottom:30px;
+    text-shadow:2px2px6px rgba(255,255,255,0.6); animation:glow 3s infinite alternate; text-align:center;}
 @keyframes glow { from{text-shadow:0 0 8px #ff6fa0,0 0 16px #ff9bb3;} to{text-shadow:0 0 16px #ff3366,0 0 28px #ff6fa0;} }
 
 .heart-bg,.sparkle{pointer-events:none;position:absolute;border-radius:2px;}
-.heart-bg{width:20px;height:20px;background:#ff5a85;transform:rotate(45deg);opacity:0.7;animation:fly 6s linear infinite;}
-.heart-bg::before,.heart-bg::after{content:'';position:absolute;width:20px;height:20px;background:#ff5a85;border-radius:50%;}
-.heart-bg::before{top:-10px;left:0;} .heart-bg::after{left:-10px;top:0;}
+.heart-bg{width:16px;height:16px;background:#ff5a85;transform:rotate(45deg);opacity:0.7;animation:fly 6s linear infinite;}
+.heart-bg::before,.heart-bg::after{content:'';position:absolute;width:16px;height:16px;background:#ff5a85;border-radius:50%;}
+.heart-bg::before{top:-8px;left:0;} .heart-bg::after{left:-8px;top:0;}
 @keyframes fly{0%{transform:translateY(100vh) rotate(45deg);opacity:1;}100%{transform:translateY(-10vh) rotate(45deg);opacity:0;}}
 
-.click-btn{padding:14px36px;background:#ff4c7d;color:white;border:none;font-size:20px;border-radius:50px;
-cursor:pointer;box-shadow:0 6px 14px rgba(0,0,0,0.2);transition:0.3s;z-index:100;position:relative;}
+.click-btn{padding:12px 28px;background:#ff4c7d;color:white;border:none;font-size:18px;border-radius:50px;
+cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.2);transition:0.3s;z-index:100;position:relative;}
 .click-btn:hover{background:#ff6fa0;transform:scale(1.05);}
 
 .popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);transition:transform 0.8s ease;z-index:200;text-align:center;}
 .popup.show{transform:translate(-50%,-50%) scale(1);}
 
-.paper-behind{width:420px;height:280px;background:white;transform:rotate(-6deg);border-radius:20px;position:absolute;top:0;left:0;box-shadow:0 10px 25px rgba(0,0,0,0.25);}
-.paper-front{width:420px;height:280px;background:#ffb6c1;border-radius:20px;position:relative;
-box-shadow:0 10px 25px rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:flex-start;
-padding:25px;border:3px dashed #ff4c7d;animation:appear 0.8s ease forwards;transform:scale(0.9);}
+.paper-behind{width:90vw; max-width:420px; height:auto; background:white; transform:rotate(-6deg); border-radius:20px; position:absolute; top:0; left:0; box-shadow:0 10px 25px rgba(0,0,0,0.25);}
+.paper-front{width:90vw; max-width:420px; height:auto; background:#ffb6c1; border-radius:20px; position:relative;
+box-shadow:0 10px 25px rgba(0,0,0,0.35); display:flex; flex-direction:row; align-items:flex-start; justify-content:flex-start;
+padding:20px; border:3px dashed #ff4c7d; animation:appear 0.8s ease forwards; box-sizing:border-box;}
 @keyframes appear{from{transform:scale(0.7);opacity:0;}to{transform:scale(1);opacity:1;}}
 
-.left-side{flex-shrink:0;text-align:center;margin-right:25px;}
-.big-heart{font-size:48px;animation:beat 1.5s infinite;}
+.left-side{flex-shrink:0;text-align:center;margin-right:15px;}
+.big-heart{font-size:40px;animation:beat 1.5s infinite;}
 @keyframes beat{0%,100%{transform:scale(1);}50%{transform:scale(1.2);}}
 
-.gift{font-size:40px;margin-top:10px;animation:bounce 2s infinite ease-in-out;}
+.gift{font-size:36px;margin-top:10px;animation:bounce 2s infinite ease-in-out;}
 @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 
-.note{color:#c2185b;text-align:left;flex:1;}
-.note h2{font-family:'Pacifico',cursive;margin:0 0 10px;font-size:24px;}
+.note{color:#c2185b;text-align:left;flex:1;position:relative;}
+.note h2{font-family:'Pacifico',cursive;margin:0 0 10px;font-size:22px;}
 
-#fullLine{display:inline-block;white-space:pre-wrap;word-break:break-word;max-width:230px;font-family:'Poppins',sans-serif;font-size:15px;}
+#fullLine{white-space:pre-wrap;word-break:break-word;font-size:14px;line-height:1.5;}
+.close-btn{
+    position:absolute; top:10px; right:10px; font-size:24px; font-weight:bold;
+    color:#c2185b; background:none; border:none; cursor:pointer; z-index:300;
+}
+.close-btn:hover{color:#ff3366;}
 .sparkle{width:4px;height:4px;background:#fff;border-radius:50%;opacity:0.8;box-shadow:0 0 10px #fff;animation:sparkle 2s infinite ease-in-out;}
 @keyframes sparkle{0%,100%{opacity:0;transform:scale(0.5);}50%{opacity:1;transform:scale(1.5);}}
 </style>
@@ -61,6 +66,7 @@ padding:25px;border:3px dashed #ff4c7d;animation:appear 0.8s ease forwards;trans
             <div class="gift">🎁</div>
         </div>
         <div class="note">
+            <button class="close-btn" id="closeBtn">×</button>
             <h2>Lời nhắn 💌</h2>
             <p id="fullLine"></p>
         </div>
@@ -69,7 +75,7 @@ padding:25px;border:3px dashed #ff4c7d;animation:appear 0.8s ease forwards;trans
 
 <script>
 // Tim bay
-for(let i=0;i<20;i++){
+for(let i=0;i<15;i++){
     const heart=document.createElement('div');
     heart.classList.add('heart-bg');
     heart.style.left=Math.random()*100+'vw';
@@ -80,7 +86,7 @@ for(let i=0;i<20;i++){
 }
 
 // Sao lấp lánh
-for(let i=0;i<15;i++){
+for(let i=0;i<10;i++){
     const sparkle=document.createElement('div');
     sparkle.classList.add('sparkle');
     sparkle.style.top=Math.random()*100+'vh';
@@ -91,13 +97,18 @@ for(let i=0;i<15;i++){
 
 const showBtn=document.getElementById('showBtn');
 const popup=document.getElementById('popup');
+const closeBtn=document.getElementById('closeBtn');
 
 showBtn.addEventListener('click',()=>{
     popup.classList.add('show');
     showBtn.style.display='none';
+    document.getElementById('fullLine').textContent = 
+        "Chúc bạn một ngày 20/10 thật vui vẻ và ý nghĩa!\nMong nụ cười luôn nở trên môi, hạnh phúc luôn bên cạnh\nvà mọi ước mơ sớm trở thành hiện thực 💐";
+});
 
-    const lineEl=document.getElementById('fullLine');
-    lineEl.textContent = "Chúc bạn một ngày 20/10 thật vui vẻ và ý nghĩa!\nMong nụ cười luôn nở trên môi, hạnh phúc luôn bên cạnh\nvà mọi ước mơ sớm trở thành hiện thực 💐 \n                ~20-10~";
+closeBtn.addEventListener('click',()=>{
+    popup.classList.remove('show');
+    showBtn.style.display='inline-block';
 });
 </script>
 </body>
